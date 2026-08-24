@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LINE Planner</title>
+
+    <!-- LIFF SDK -->
+    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+
+    <!-- FullCalendar -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- Header -->
+    <header class="header">
+        <div>
+            <h1>LINE Planner</h1>
+            <p id="userName">กำลังโหลด...</p>
+        </div>
+
+        <div class="notification-icon" onclick="scrollToNotification()">
+            🔔
+            <span id="notificationCount">0</span>
+        </div>
+    </header>
+
+
+    <!-- Dashboard -->
+    <section class="dashboard">
+
+        <div class="welcome">
+            <p>สวัสดี 👋</p>
+            <h2>วันนี้มีอะไรต้องทำบ้าง?</h2>
+        </div>
+
+        <div class="stats">
+
+            <div class="stat-card">
+                <span>📋</span>
+                <strong id="totalTask">0</strong>
+                <small>ทั้งหมด</small>
+            </div>
+
+            <div class="stat-card">
+                <span>✅</span>
+                <strong id="completedTask">0</strong>
+                <small>เสร็จแล้ว</small>
+            </div>
+
+            <div class="stat-card">
+                <span>⏳</span>
+                <strong id="pendingTask">0</strong>
+                <small>กำลังทำ</small>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Calendar -->
+    <section class="card">
+
+        <div class="section-title">
+            <h2>📅 ปฏิทิน</h2>
+        </div>
+
+        <div id="calendar"></div>
+
+    </section>
+
+
+    <!-- Add Planner -->
+    <section class="card">
+
+        <div class="section-title">
+            <h2>➕ เพิ่มกิจกรรม</h2>
+        </div>
+
+        <label>ชื่อกิจกรรม</label>
+        <input
+            type="text"
+            id="taskTitle"
+            placeholder="เช่น ทำรายงานวิจัย"
+        >
+
+        <label>วันที่</label>
+        <input type="date" id="taskDate">
+
+        <label>เวลา</label>
+        <input type="time" id="taskTime">
+
+        <label>หมวดหมู่</label>
+
+        <select id="taskCategory">
+            <option value="เรียน">📚 เรียน</option>
+            <option value="งาน">💼 งาน</option>
+            <option value="ส่วนตัว">🏠 ส่วนตัว</option>
+            <option value="อื่นๆ">📌 อื่นๆ</option>
+        </select>
+
+        <label>แจ้งเตือนก่อน</label>
+
+        <select id="taskNotify">
+            <option value="0">ไม่แจ้งเตือน</option>
+            <option value="10">10 นาที</option>
+            <option value="30">30 นาที</option>
+            <option value="60">1 ชั่วโมง</option>
+            <option value="1440">1 วัน</option>
+        </select>
+
+        <label>รายละเอียด</label>
+
+        <textarea
+            id="taskDetail"
+            placeholder="รายละเอียดเพิ่มเติม..."
+        ></textarea>
+
+        <button class="add-button" onclick="addTask()">
+            💾 บันทึกกิจกรรม
+        </button>
+
+    </section>
+
+
+    <!-- Today's Tasks -->
+    <section class="card">
+
+        <div class="section-title">
+            <h2>📋 กิจกรรม</h2>
+        </div>
+
+        <div id="taskList"></div>
+
+    </section>
+
+
+    <!-- Notification -->
+    <section class="card" id="notificationSection">
+
+        <div class="section-title">
+            <h2>🔔 การแจ้งเตือน</h2>
+        </div>
+
+        <div id="notificationList">
+            <p class="empty">
+                ยังไม่มีการแจ้งเตือน
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+
+        <button onclick="scrollToTop()">
+            🏠
+            <span>หน้าหลัก</span>
+        </button>
+
+        <button onclick="scrollToCalendar()">
+            📅
+            <span>ปฏิทิน</span>
+        </button>
+
+        <button class="plus-button" onclick="scrollToAdd()">
+            +
+        </button>
+
+        <button onclick="scrollToNotification()">
+            🔔
+            <span>แจ้งเตือน</span>
+        </button>
+
+        <button>
+            👤
+            <span>โปรไฟล์</span>
+        </button>
+
+    </nav>
+
+</div>
+
+
+<!-- FullCalendar JS -->
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
+
+<!-- JavaScript -->
+<script src="script.js"></script>
+
+</body>
+</html>
