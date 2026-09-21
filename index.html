@@ -10,10 +10,8 @@
     <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 
     <!-- FullCalendar -->
-    <link
-        href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.css"
-        rel="stylesheet"
-    > 
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.css"
+          rel="stylesheet" > 
     
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
@@ -21,7 +19,7 @@
 
 <body>
 
-<div class="app">
+    <div class="app">
 
     <!-- Header -->
     <header class="header">
@@ -131,29 +129,24 @@
 
     <!-- Today's Tasks -->
     <section class="card">
-
         <div class="section-title">
             <h2>📋 กิจกรรม</h2>
         </div>
 
         <div id="taskList"></div>
-
     </section>
 
 
     <!-- Notification -->
     <section class="card" id="notificationSection">
-
         <div class="section-title">
             <h2>🔔 การแจ้งเตือน</h2>
         </div>
-
         <div id="notificationList">
             <p class="empty">
                 ยังไม่มีการแจ้งเตือน
             </p>
         </div>
-
     </section>
 
 
@@ -165,7 +158,6 @@
                 <nav>
         <!-- เชื่อมไปหน้าอื่น -->
         <a href="index.html">หน้าหลัก</a>  
-              
                 </nav>
             </span>
         </button>
@@ -211,10 +203,12 @@
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
 
 <!-- JavaScript -->
-<script src="script.js">
-    scrollToTop(): {
-  textDecorationLine: 'none', // ปิดการขีดเส้นใต้
-}
+<script src= "script.js">
+    const navLinkStyle = {
+  textDecoration: 'none', // ตรวจสอบและเปลี่ยนให้เป็น none
+};
+
+   
 </script>
 
 </body>
