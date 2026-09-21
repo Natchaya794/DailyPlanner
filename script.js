@@ -705,7 +705,13 @@ function scrollToNotification() {
 }
 
 
-/* ลบเส้นใต้ของลิงก์ทั้งหมดในแถบเมนู */
-a {
-    text-decoration: none !important;
-}
+Text(
+  'หน้าหลัก',
+  'ปฏิทิน',
+  'แจ้งเตือน',
+  'โปรไฟล์',
+  style: TextStyle(
+    decoration: TextDecoration.none, // ลบเส้นใต้
+  ),
+)
+
