@@ -3,18 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LINE Planner</title>
 
-    <!-- LIFF SDK -->
-    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <title>ปฏิทิน - LINE Planner</title>
 
-    <!-- FullCalendar -->
+    <!-- FullCalendar CSS -->
     <link
         href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.css"
         rel="stylesheet"
     >
 
-    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
+
+<body>
+
+<div class="calendar-page">
+
+    <!-- Header -->
+    <header class="calendar-header">
+
+        <button onclick="history.back()" class="back-button">
+            ←
+        </button>
+
+        <h1>📅 ปฏิทิน</h1>
+
+        <button class="today-button" onclick="goToday()">
+            วันนี้
+        </button>
+
+    </header>
+
+
+    <!-- Calendar -->
+    <main class="calendar-container">
+
+        <div id="calendar"></div>
+
+    </main>
+
+
+    <!-- Selected Date -->
+    <section class="selected-date">
+
+        <h2 id="selectedDate">
+            เลือกวันที่
+        </h2>
+
+        <div id="dayTasks">
+
+            <p class="empty">
+                คลิกวันที่ในปฏิทินเพื่อดูรายการ
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Add Button -->
+    <button
+        class="floating-button"
+        onclick="goToAddTask()"
+    >
+        +
+    </button>
+
+</div>
+
+
+<!-- FullCalendar JS -->
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
+
+<!-- Calendar JS -->
+<script src="calendar.js"></script>
+
+</body>
+</html>
 
