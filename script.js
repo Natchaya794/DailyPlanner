@@ -711,7 +711,7 @@ Text(
   'แจ้งเตือน',
   'โปรไฟล์',
   style: TextStyle(
-    decoration: TextDecoration.none, // ลบเส้นใต้
+    decoration: TextDecoration.none,  // ลบเส้นใต้
   ),
 )
 
