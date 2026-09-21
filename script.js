@@ -705,13 +705,5 @@ function scrollToNotification() {
 }
 
 
-Text(
-  'หน้าหลัก',
-  'ปฏิทิน',
-  'แจ้งเตือน',
-  'โปรไฟล์',
-  style: TextStyle(
-    decoration: TextDecoration.none,  // ลบเส้นใต้
-  ),
-)
+
 
