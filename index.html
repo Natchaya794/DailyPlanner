@@ -162,10 +162,11 @@
         <button onclick="scrollToTop()">
             🏠
             <span>
-                  <nav>
+                <nav>
         <!-- เชื่อมไปหน้าอื่น -->
         <a href="index.html">หน้าหลัก</a>  
-               </nav>
+              
+                </nav>
             </span>
         </button>
 
@@ -210,7 +211,11 @@
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
 
 <!-- JavaScript -->
-<script src="script.js"></script>
+<script src="script.js">
+    tabBarLabelStyle: {
+  textDecorationLine: 'none', // ปิดการขีดเส้นใต้
+}
+</script>
 
 </body>
 </html>
