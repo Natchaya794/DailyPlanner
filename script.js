@@ -703,3 +703,9 @@ function scrollToNotification() {
         });
 
 }
+
+
+/* ลบเส้นใต้ของลิงก์ทั้งหมดในแถบเมนู */
+a {
+    text-decoration: none !important;
+}
