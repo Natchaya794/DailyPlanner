@@ -3,11 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <nav>
-        <!-- เชื่อมไปหน้าอื่น -->
-        <a href="Notify.html">แจ้งเตือน</a>
-        <a href="profile.html">โปรไฟล์</a>
-    </nav>
+  
     <title>LINE Planner</title>
 
     <!-- LIFF SDK -->
@@ -76,23 +72,14 @@
 
     <!-- Calendar -->
     <section class="card">
-
         <div class="section-title">
             <h2>📅 ปฏิทิน</h2>
-    <nav>
-        <!-- เชื่อมไปหน้าอื่น -->
-        <a href="pages/calendar.html">ปฏิทิน</a>  
-    </nav>
         </div>
-
         <div id="calendar"></div>
-
     </section>
-
 
     <!-- Add Planner -->
     <section class="card">
-
         <div class="section-title">
             <h2>➕ เพิ่มกิจกรรม</h2>
         </div>
@@ -103,7 +90,6 @@
             id="taskTitle"
             placeholder="เช่น ทำรายงานวิจัย"
         >
-
         <label>วันที่</label>
         <input type="date" id="taskDate">
 
@@ -171,9 +157,8 @@
     </section>
 
 
-    <!-- Bottom Navigation -->
+    <!-- Bottom Navigation แถบด้านล่าง -->
     <nav class="bottom-nav">
-
         <button onclick="scrollToTop()">
             🏠
             <span>หน้าหลัก</span>
@@ -181,7 +166,12 @@
 
         <button onclick="scrollToCalendar()">
             📅
-            <span>ปฏิทิน</span>
+            <span>
+                <nav>
+        <!-- เชื่อมไปหน้าอื่น -->
+        <a href="pages/calendar.html">ปฏิทิน</a>  
+               </nav>
+            </span>
         </button>
 
         <button class="plus-button" onclick="scrollToAdd()">
@@ -190,12 +180,20 @@
 
         <button onclick="scrollToNotification()">
             🔔
-            <span>แจ้งเตือน</span>
+           <span>
+              <nav>
+                <!-- เชื่อมไปหน้าอื่น -->
+                <a href="Notify.html">แจ้งเตือน</a>
+              </nav>
+           </span>
         </button>
 
         <button>
             👤
-            <span>โปรไฟล์</span>
+            <span>
+                <!-- เชื่อมไปหน้าอื่น -->
+                <a href="profile.html">โปรไฟล์</a>
+            </span>
         </button>
 
     </nav>
