@@ -607,22 +607,7 @@ function scrollToNotification() {
 
 }
 
-/* =========================
-   BOTTOM NAV - LINK เส้นแทป
-========================= */
-.bottom-nav a {
-    text-decoration: none !important;
-    color: #777 !important;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    gap: 3px;
-
-    cursor: pointer;
-}
 
 
 
