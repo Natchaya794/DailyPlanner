@@ -3,33 +3,21 @@
 // ======================================
 
 const LIFF_ID = "ใส่-LIFF-ID-ของคุณ";
-
 async function initLIFF() {
-
     try {
-
         await liff.init({
             liffId: LIFF_ID
         });
-
         if (liff.isLoggedIn()) {
-
             const profile = await liff.getProfile();
-
             document.getElementById("userName").textContent =
                 "สวัสดี " + profile.displayName;
-
         } else {
-
             document.getElementById("userName").textContent =
                 "LINE Planner";
-
         }
-
     } catch (error) {
-
         console.log("LIFF Error:", error);
-
         document.getElementById("userName").textContent =
             "LINE Planner";
     }
@@ -41,8 +29,7 @@ async function initLIFF() {
 // ======================================
 
 let tasks = JSON.parse(
-    localStorage.getItem("plannerTasks")
-) || [];
+    localStorage.getItem("plannerTasks")) || [];
 
 let calendar;
 
@@ -52,19 +39,12 @@ let calendar;
 // ======================================
 
 document.addEventListener("DOMContentLoaded", function () {
-
     initLIFF();
-
     initializeCalendar();
-
     renderTasks();
-
     updateDashboard();
-
     renderNotifications();
-
     setDefaultDate();
-
 });
 
 
@@ -73,22 +53,15 @@ document.addEventListener("DOMContentLoaded", function () {
 // ======================================
 
 function initializeCalendar() {
-
     const calendarElement =
         document.getElementById("calendar");
-
     calendar = new FullCalendar.Calendar(
         calendarElement,
         {
-
             initialView: "dayGridMonth",
-
             locale: "th",
-
             height: "auto",
-
             firstDay: 0,
-
             headerToolbar: {
                 left: "prev,next",
                 center: "title",
@@ -96,19 +69,13 @@ function initializeCalendar() {
             },
 
             dateClick: function (info) {
-
                 document.getElementById("taskDate").value =
                     info.dateStr;
-
                 scrollToAdd();
-
             },
-
             events: getCalendarEvents()
-
         }
     );
-
     calendar.render();
 }
 
@@ -118,31 +85,21 @@ function initializeCalendar() {
 // ======================================
 
 function getCalendarEvents() {
-
     return tasks.map(task => {
-
         return {
-
             id: String(task.id),
-
             title: task.title,
-
             start: task.date + "T" + task.time,
-
             backgroundColor:
                 task.completed
                     ? "#9edfb4"
                     : "#06c755",
-
             borderColor:
                 task.completed
                     ? "#9edfb4"
                     : "#06c755"
-
         };
-
     });
-
 }
 
 
@@ -151,71 +108,45 @@ function getCalendarEvents() {
 // ======================================
 
 function addTask() {
-
     const title =
         document.getElementById("taskTitle").value.trim();
-
     const date =
         document.getElementById("taskDate").value;
-
     const time =
         document.getElementById("taskTime").value;
-
     const category =
         document.getElementById("taskCategory").value;
-
     const notify =
         Number(document.getElementById("taskNotify").value);
-
     const detail =
         document.getElementById("taskDetail").value.trim();
 
-
     if (!title || !date || !time) {
-
         alert("กรุณากรอกชื่อกิจกรรม วันที่ และเวลา");
-
         return;
     }
 
 
     const task = {
-
         id: Date.now(),
-
         title: title,
-
         date: date,
-
         time: time,
-
         category: category,
-
         notify: notify,
-
         detail: detail,
-
         completed: false
-
     };
 
 
     tasks.push(task);
-
     saveTasks();
-
     clearForm();
-
     refreshCalendar();
-
     renderTasks();
-
     updateDashboard();
-
     renderNotifications();
-
     alert("เพิ่มกิจกรรมเรียบร้อยแล้ว");
-
 }
 
 
@@ -224,12 +155,10 @@ function addTask() {
 // ======================================
 
 function saveTasks() {
-
     localStorage.setItem(
         "plannerTasks",
         JSON.stringify(tasks)
     );
-
 }
 
 
@@ -238,22 +167,14 @@ function saveTasks() {
 // ======================================
 
 function renderTasks() {
-
     const list =
         document.getElementById("taskList");
-
     list.innerHTML = "";
-
-
     if (tasks.length === 0) {
-
         list.innerHTML =
             `<p class="empty">ยังไม่มีกิจกรรม</p>`;
-
         return;
     }
-
-
     const sortedTasks = [...tasks].sort(
         (a, b) => {
 
@@ -263,51 +184,33 @@ function renderTasks() {
                     b.date + b.time
                 )
             );
-
         }
     );
 
-
     sortedTasks.forEach(task => {
-
         const div =
             document.createElement("div");
-
         div.className = "task";
-
-
         div.innerHTML = `
-
             <div class="task-title">
-
                 ${task.completed ? "✅" : "📌"}
-
                 ${escapeHTML(task.title)}
-
             </div>
-
+            
             <div class="task-info">
-
                 📅 ${formatDate(task.date)}
-
                 &nbsp;
-
                 🕒 ${task.time}
-
             </div>
-
+            
             <div class="task-info">
-
                 ${getCategoryIcon(task.category)}
-
                 ${task.category}
-
                 ${
                     task.notify > 0
                     ? ` · 🔔 ${formatNotify(task.notify)}`
                     : ""
                 }
-
             </div>
 
             ${
@@ -702,6 +605,23 @@ function scrollToNotification() {
             behavior: "smooth"
         });
 
+}
+
+/* =========================
+   BOTTOM NAV - LINK เส้นแทป
+========================= */
+.bottom-nav a {
+    text-decoration: none !important;
+    color: #777 !important;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 3px;
+
+    cursor: pointer;
 }
 
 
